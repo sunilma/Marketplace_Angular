@@ -1,0 +1,11 @@
+div li {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    font-size: 1.5em;
+}
+
+form {
+    padding-top: 40px;
+    padding-right: 50px;
+}

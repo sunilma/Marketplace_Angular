@@ -1,0 +1,18 @@
+<div *ngIf="job">
+  <h1 class="page-header">{{ job.title }} <span><a [routerLink]="['/dashboard']"><i class="fa fa-arrow-circle-left pull-right"></i></a></span></h1>
+    <span [innerHTML]="job.description" ></span>
+  <div class="pull-right">
+    <p>Posted by: <strong>{{ job.employer_name }}</strong></p>
+    <div *ngIf="job.employer_contact">
+      <p>Apply to: <strong>{{ job.employer_contact }}</strong></p>
+    </div>
+    <div *ngIf="job.application_link">
+      <p>Application Link: <a href="{{job.application_link}}" target="_blank"><strong>{{ job.application_link }}</strong></a></p>
+    </div>
+      <div *ngIf="!job.application_link">
+      <p>Apply to: <strong>{{ job.employer_email }}</strong></p>
+    </div>
+    <p>Deadline: <strong>{{ job.deadline | date }}</strong></p>
+  </div>
+  
+</div>

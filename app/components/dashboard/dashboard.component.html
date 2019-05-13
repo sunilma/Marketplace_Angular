@@ -1,0 +1,9 @@
+
+<div *ngIf="user">
+  <div *ngIf="user.status == 'student'">
+    <app-student></app-student>
+  </div>
+  <div *ngIf="user.status == 'employer'">
+    <app-employer [employer_id]="user.id"></app-employer>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<h1 class="page-header">My Jobs <span class="pull-right"><a [routerLink]="['/dashboard/add']"><i class="fa fa-plus-square-o fa-lg"></i></a></span></h1>
+<div *ngFor="let job of jobs; let i = index" class="centered">
+  <div class="row">
+    <div class="col-md-8">
+      <h3><a (click)="clickIndex(i)">{{job.title}}</a></h3>
+    </div>
+    <div class="col-md-2">
+      <p>{{job.posted_date | date : "short"}}</p>
+    </div>
+    <div class="col-md-1 col-md-offset-1">
+      <a (click)="onDeleteClick(job._id)"><i class="fa fa-trash fa-lg"></i></a>
+    </div>
+  </div>
+  <div *ngIf="selectedIndex == i && showDescription">
+    <span [innerHTML]="job.description" ></span>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<h1 class="page-header">Job Board</h1>
+<div *ngFor="let job of jobs | orderBy:'posted_date':'reverse'| paginate: { itemsPerPage: 5, currentPage: p }" class="centered"> 
+  <div class="row">
+    <div class="col-md-2">
+      <h3>{{job.employer_name}}</h3>
+    </div>
+    <div class="col-md-7">
+      <h3>{{job.title}}</h3>    
+      <span [innerHTML]="job.description | slice:0:200" ></span>
+      <div>Deadline: <span>{{job.deadline | date}}</span></div>
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="button pull-right" [routerLink]="['/dashboard/'+job._id]">Read more</button>
+    </div>
+  </div>
+  <div class="posted pull-right">
+    <p>Posted: {{job.posted_date | amTimeAgo }}</p>
+  </div>
+</div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
